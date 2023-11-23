@@ -1,0 +1,36 @@
+{
+  "flashSize": "1M",
+  "appSize": "64K",
+  "appPath": "F:\\workPlace\\vc++\\upasm\\UPASM\\BurnTool\\bin\\Debug\\netcoreapp3.1\\firmwares\\app.bin",
+  "dataPartitions": [
+    {
+      "name": "usrdata",
+      "addr": "0x10000",
+      "size": "256K",
+      "path": "F:\\workPlace\\vc++\\upasm\\UPASM\\BurnTool\\bin\\Debug\\netcoreapp3.1\\firmwares\\data0.bin"
+    },
+    {
+      "name": "images",
+      "addr": "0x50000",
+      "size": "256K",
+      "path": "F:\\workPlace\\vc++\\upasm\\UPASM\\BurnTool\\bin\\Debug\\netcoreapp3.1\\firmwares\\data1.bin"
+    }
+  ]
+}
+
+/******************************************配置说明******************************************
+flashSize：flash的容量，也是生成的wholebin.bin的大小
+appSize：指令分区大小，指令分区起始地址默认为0，不支持配置
+appPath：指令文件路径，由编译器编译得到
+dataPartitions：数据分区数组，如果没有数据分区，则写空的[]，增加数据分区则根据例子增加一个{},
+数据分区：
+    name：分区名称，只是一个标签，无实际意义
+    addr：分区起始地址，十六进制
+    size：分区大小，单位字节，可以用K,M表示,分区大小必须按256Byte对齐
+    path：分区内容文件路径
+
+注意：
+    ·如果只要烧写指令分区，则可以把flashSize设置跟appSize一样大小，这样wholebin.bin文件就不是
+      整个flash的wholebin了，只能用作调试。
+*/
+
